@@ -1,4 +1,3 @@
-import axios from "axios";
 import Daylist from "./DayList";
 import "components/Application.scss";
 import React, { useState, useEffect } from "react";
