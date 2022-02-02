@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import axios from "axios";
 import Daylist from "./DayList";
 import "components/Application.scss";
-
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+import React, { useState, useEffect } from "react";
+import Appointment from "components/Appointment";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "helpers/selectors";
+import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
-  console.log(day);
+  const { state, setDay, bookInterview, cancelInterview } =
+    useApplicationData();
+
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
+  console.log("interviewers", interviewers);
+
+  const appointmentList = dailyAppointments.map((appointment) => {
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={getInterview(state, appointment.interview)}
+        interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+      />
+    );
+  });
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -33,7 +42,8 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <Daylist days={days} value={day} onChange={setDay} />{" "}
+          {" "}
+          <Daylist days={state.days} value={state.day} onChange={setDay} />{" "}
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -42,7 +52,8 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        {appointmentList}
+        <Appointment id="last" time="5pm" />
       </section>
     </main>
   );
