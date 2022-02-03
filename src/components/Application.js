@@ -1,7 +1,7 @@
 import Daylist from "./DayList";
 import "components/Application.scss";
 import React from "react";
-import Appointment from "components/Appointment";
+import Appointment from "components/Appointment/Index";
 import {
   getAppointmentsForDay,
   getInterview,
