@@ -1,5 +1,7 @@
 # Interview Scheduler
 
+Using everything we've learned so far in the bootcamp Scheduler is an app that allows you to book and make appointments during the week.
+
 ## Setup
 
 Install dependencies with `npm install`.

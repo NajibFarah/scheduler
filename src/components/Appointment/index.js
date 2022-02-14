@@ -7,7 +7,6 @@ import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
 import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
-// import { TRUE } from 'node-sass';
 import Error from "components/Appointment/Error";
 
 export default function Appointment(props) {
