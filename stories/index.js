@@ -1,12 +1,15 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+
+import "index.scss";
+
 import DayList from "components/DayList";
 import DayListItem from "components/DayListItem";
-import "index.scss";
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 import InterviewerListItem from "components/InterviewerListItem";
+
 import Appointment from "components/Appointment/index";
 import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
