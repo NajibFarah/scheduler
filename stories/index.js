@@ -11,12 +11,12 @@ import InterviewerList from "components/InterviewerList";
 import InterviewerListItem from "components/InterviewerListItem";
 
 import Appointment from "components/Appointment/index";
-import Show from "components/Appointment/Show";
-import Confirm from "components/Appointment/Confirm";
-import Error from "components/Appointment/Error";
-import Header from "components/Appointment/Header";
-import Status from "components/Appointment/Status";
-import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/show";
+import Confirm from "components/Appointment/confirm";
+import Error from "components/Appointment/error";
+import Header from "components/Appointment/header";
+import Status from "components/Appointment/status";
+import Empty from "components/Appointment/empty";
 
 storiesOf("Button", module)
   .addParameters({

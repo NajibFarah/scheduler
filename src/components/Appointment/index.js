@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.scss";
-import Header from "./Header";
-import Empty from "./Empty";
-import Show from "./Show";
+import Header from "./header";
+import Empty from "./empty";
+import Show from "./show";
 import useVisualMode from "hooks/useVisualMode";
-import Form from "./Form";
-import Status from "components/Appointment/Status";
-import Confirm from "components/Appointment/Confirm";
-import Error from "components/Appointment/Error";
+import Form from "./form";
+import Status from "components/Appointment/status";
+import Confirm from "components/Appointment/confirm";
+import Error from "components/Appointment/error";
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";

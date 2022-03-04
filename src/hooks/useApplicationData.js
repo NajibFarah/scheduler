@@ -60,13 +60,6 @@ export default function useApplicationData() {
   }
 
   function cancelInterview(id) {
-    const days = state.days.map((day) => {
-      if (day.appointments.includes(id)) {
-        return { ...day, spots: updateSpots(day, appointments) };
-      }
-      return day;
-    });
-
     const appointment = {
       ...state.appointments[id],
       interview: null,
@@ -75,6 +68,12 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
+    const days = state.days.map((day) => {
+      if (day.appointments.includes(id)) {
+        return { ...day, spots: updateSpots(day, appointments) };
+      }
+      return day;
+    });
 
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`, appointment)
